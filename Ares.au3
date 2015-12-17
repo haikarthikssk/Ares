@@ -16,7 +16,7 @@
 #include<MsgBoxConstants.au3>
 #include <Misc.au3>
 
-Opt("TrayMenuMode",3);Tell autoit not to puase our script while we click on it.
+Opt("TrayMenuMode",3);Tell autoit not to pause our script while we click on it.
 $EXIT=0
 $ROUTER_LIST_FILE="routerlist.txt"
 local $MENU_CONTROLS[30]
@@ -83,7 +83,7 @@ func clearTrayItems()
 $Timer=_Timer_Init()
 while 1
    $msg=TrayGetMsg()
-   if $msg=$EXIT Then
+   if $msg=$EXIT Then	;Exit when user clicks exit
 	  Exit
    EndIf
   for $i=0 to $INDEX
@@ -102,9 +102,9 @@ while 1
 	 EndIf
   WEnd
 
-;Adds our exe to the window startup
+;Adds our exe to the windows startup
 ;You may wonder why i have added the current directory to the registry.
-;The answer is ,we are installed at say XYZ dir and all our files are present
+;The answer is ,we are installed at say XYZ dir and all our files are present under dir XYZ
 ; when the Windows boots up , it will execute the exe with the 'system32' as base dir.
 ;We don't know where our files are present , so we make ourself to get notified about our installed path by writing it to registry and passing it to ourself.
 
